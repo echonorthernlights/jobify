@@ -1,18 +1,48 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
+
+import {Home, About, Register, Login, Stats, DashboardLayout ,HomeLayout, Landing} from "./pages"
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home/>,
+    element: <HomeLayout/>,
+    children : [
+      {
+        index : true ,
+        element : <Landing/>
+      },
+     {
+    path: 'register',
+    element: <Register/>,
   },
   {
-    path: '/about',
+    path: 'login',
+    element: <Login/>,
+  },
+  
+ {
+    path: 'about',
     element: (
       <About/>
     ),
-  },
+  }, 
+  {
+    path: 'dashboard',
+    element: (
+      <DashboardLayout/>
+    ),
+    children : [
+      {
+        path: 'stats',
+        element: (
+          <Stats/>
+        ),
+      }, 
+    ]
+  }, 
+    ]
+  }, 
+  
 ]);
 
 const App = () => {

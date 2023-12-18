@@ -1,9 +1,11 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom'
 
 const DashboardLayout = () => {
   return (
     <div>
-      DashboardLayout page
+      <h1>DashboardLayout page</h1>
+      <Outlet/>
     </div>
   )
 }
