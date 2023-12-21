@@ -1,15 +1,30 @@
 import React from 'react';
 import { Link, useRouteError } from 'react-router-dom';
+import Wrapper from '../assets/wrappers/ErrorPage';
+import img from '../assets/images/not-found.svg';
 
 const Error = () => {
   const error = useRouteError(); 
-  return (
-    <div>
-      <h1>{error.status} - {error.statusText}</h1>
+
+  if(error.status == 404){
+    return (
+      <Wrapper>
+        <div>
+      <img src={img} alt="Jobify 404" />
+      <h3>Oops !! page not found</h3>
       <p>Sorry, the page you are looking for does not exist.</p>
-      <p>{error.error.message}</p>
-      <Link to="/">Back to Home</Link>
+    <Link to="/" >Back to Home</Link>
     </div>
+  </Wrapper>
+    )
+  }
+  return (
+    <Wrapper>
+      <div>
+        <h3>Something went wrong !!</h3>
+      <Link to="/" >Back to Home</Link>
+      </div>
+    </Wrapper>
   );
 };
 
