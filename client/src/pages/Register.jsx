@@ -16,8 +16,9 @@ const Register = () => {
           <FormRow type="password" name="password" defaultValue="root1234" />
       
           <button type="submit" className="btn btn-block">submit</button>
+          <button type="button" className="btn btn-block">explore the app</button>
           <p>
-            Already a member ?
+            Already a member yet ?
             <Link to="/login" className="member-btn"> Login </Link>
           </p>
         </form>
